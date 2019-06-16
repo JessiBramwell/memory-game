@@ -1,26 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Card from "./components/Card";
+import Wrapper from "./components/Wrapper";
+import cards from "./cards.json";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+let cardSet = []
+createPair(cards)
+shuffle(cardSet)
+
+class App extends Component {
+  state = {
+    cardSet
+  };
+
+  render() {
+
+    return (
+      <Wrapper>
+        {this.state.cardSet.map(item => (
+          <Card
+            id={item.id}
+            pairId={item.pairId}
+            key={item.id} />
+        ))}
+      </Wrapper>
+
+    );
+  }
+
 }
+function createPair(arr) {
+  let count = arr.length;
+  arr.forEach(item => {
+    count++;
+
+    cardSet.push(item);
+    console.log(item);
+
+    let card = Object.create(item);
+    card.id = count;
+    card.pariId = item.pairId
+    console.log(card);
+
+    cardSet.push(card)
+  });
+
+}
+
+function shuffle(arr) {
+  arr.sort(() => Math.random() - 0.5);
+}
+
+
 
 export default App;
