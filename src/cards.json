@@ -1,26 +1,38 @@
 [
   {
     "id": 1,
-    "pairId": 1
+    "pairId": 1,
+    "active": false,
+    "matched": false
   },
   {
     "id": 2,
-    "pairId": 2
+    "pairId": 2,
+    "active": false,
+    "matched": false
   },
   {
     "id": 3,
-    "pairId": 3
+    "pairId": 3,
+    "active": false,
+    "matched": false
   },
   {
     "id": 4,
-    "pairId": 4
+    "pairId": 4,
+    "active": false,
+    "matched": false
   },
   {
     "id": 5,
-    "pairId": 5
+    "pairId": 5,
+    "active": false,
+    "matched": false
   },
   {
     "id": 6,
-    "pairId": 6
+    "pairId": 6,
+    "active": false,
+    "matched": false
   }
 ]

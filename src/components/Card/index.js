@@ -1,24 +1,25 @@
 import React from "react";
 
 function Card(props) {
+  
+  let image, matchedClass;
+
+  // if active status == true cards flip
+  (props.active || props.matched) ? image = `./img/card-${props.pairId}.png` : image = "./img/back.png"
+  
+  // if matched status == true cards add class
+  props.matched ? matchedClass = "matched" : matchedClass = "unmatched";
+
 
   return (
-    <div className="col-sm-4">
-      <div className="card text-center">
-        <div className="card-header bg-primary text-white">
-          {props.id}
-        </div>
-        <div className="card-body">
-          {props.pairId}
-          {/* <p className="card-text">Click Count: {this.state.count}</p>
-        <button className="btn btn-primary" onClick={this.handleIncrement}>
-          Increment
-          </button> */}
-        </div>
+    <div className="col-md-3 col-sm-6">
+      <div className={`single-card d-flex justify-content-center ${matchedClass}`} onClick={() => props.guess(props.id)}>
+        <img src={image} alt="" />
       </div>
     </div>
   );
 
 }
+
 
 export default Card;
