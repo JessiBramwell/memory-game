@@ -8,7 +8,7 @@ function Card(props) {
   (props.active || props.matched) ? image = `./img/card-${props.pairId}.png` : image = "./img/back.png"
   
   // if matched status == true cards add class
-  props.matched ? matchedClass = "matched" : matchedClass = "unmatched";
+  props.matched ? matchedClass = "matched" : matchedClass = "";
 
 
   return (
@@ -20,6 +20,5 @@ function Card(props) {
   );
 
 }
-
 
 export default Card;

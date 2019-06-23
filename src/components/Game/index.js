@@ -51,6 +51,7 @@ class Game extends Component {
   }
 
   reset = () => {
+    const cardSet = [...this.state.cardSet]
     cardSet.map(item => {
       if (this.state.play) {
         return item.active = false;
@@ -64,8 +65,7 @@ class Game extends Component {
 
     this.setState({
       guess: [],
-      cardSet,
-      sec: 60
+      cardSet: cardSet
     });
   }
 
@@ -84,6 +84,7 @@ class Game extends Component {
   }
 
   compair = (arr) => {
+    const cardSet = [...this.state.cardSet]
     // compair if guess arr == 2
     if (arr.length === 2) {
       // if pairId match update match status and empty guess array
@@ -91,7 +92,7 @@ class Game extends Component {
 
         arr[0].matched = true
         arr[1].matched = true
-        this.setState({ cardSet });
+        this.setState({ cardSet: cardSet });
         this.checkWin();
       }
 
@@ -114,7 +115,8 @@ class Game extends Component {
       clearInterval(this.timer);
       this.setState({ 
         wins: wins,
-        play: false
+        play: false,
+        sec: 60
       })
     } else {
       return
@@ -122,7 +124,7 @@ class Game extends Component {
   }
 
   render() {
-
+    
     return (
       <Wrapper>
         <Stats
