@@ -92,7 +92,7 @@ class Game extends Component {
     const cardSet = [...this.state.cardSet]
     // compare if guess arr == 2
     if (arr.length === 2) {
-      // if pairId match update match status and empty guess array
+      // if pairId match update 'match' status and empty guess array
       if (arr[0].pairId === arr[1].pairId) {
 
         arr[0].matched = true
