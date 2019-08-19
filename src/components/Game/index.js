@@ -70,7 +70,7 @@ class Game extends Component {
   }
 
   guessHandler = (id) => {
-    if (this.state.play) {
+    if (this.state.play && this.state.guess.length < 2) {
       // find id in array of cards
       let selected = cardSet.find(el => el.id === id);
       if (!selected.active) {
