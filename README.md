@@ -11,5 +11,6 @@ Press the 'Play' button to begin a round. A timer will start counting down from 
 
 ## Built with:
 - React
+- Bootstrap
 
 

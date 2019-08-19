@@ -40,7 +40,8 @@ class Game extends Component {
         clearInterval(this.timer)
         this.setState({
           play: false,
-          losses: losses
+          losses: losses,
+          sec: 60
         });
       } else {
         this.setState({ sec: countDown-- })
