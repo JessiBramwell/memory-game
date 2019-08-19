@@ -4,9 +4,7 @@ function Wrapper(props) {
 
   return (
     <div className="container">
-      <div className="row">
-        {props.children}
-      </div>
+      {props.children}
     </div>
   );
 

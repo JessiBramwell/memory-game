@@ -4,7 +4,7 @@ import Timer from '../Timer';
 function Stats(props) {
   
   return (
-    <div className="stats-block">
+    <div className="row stats-block">
       <h2>Wins: {props.wins}</h2>
       <h2>Losses: {props.losses}</h2>
       

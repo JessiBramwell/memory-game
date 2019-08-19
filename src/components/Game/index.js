@@ -70,22 +70,26 @@ class Game extends Component {
   }
 
   guessHandler = (id) => {
-    // find id in array of cards
-    let selected = cardSet.find(el => el.id === id);
-    selected.active = true;
+    if (this.state.play) {
+      // find id in array of cards
+      let selected = cardSet.find(el => el.id === id);
+      if (!selected.active) {
+        selected.active = true;
 
-    this.setState({
-      guess: [...this.state.guess, selected],
-      cardSet
-    }, () => {
+        this.setState({
+          guess: [...this.state.guess, selected],
+          cardSet
+        }, () => {
 
-      this.compair(this.state.guess);
-    });
+          this.compare(this.state.guess);
+        });
+      }
+    }
   }
 
-  compair = (arr) => {
+  compare = (arr) => {
     const cardSet = [...this.state.cardSet]
-    // compair if guess arr == 2
+    // compare if guess arr == 2
     if (arr.length === 2) {
       // if pairId match update match status and empty guess array
       if (arr[0].pairId === arr[1].pairId) {
@@ -108,12 +112,12 @@ class Game extends Component {
 
   checkWin = () => {
     let wins = this.state.wins;
-    let matched = cardSet.every(el => el.matched === true); 
+    let matched = cardSet.every(el => el.matched === true);
 
-    if(matched) {
+    if (matched) {
       wins++
       clearInterval(this.timer);
-      this.setState({ 
+      this.setState({
         wins: wins,
         play: false,
         sec: 60
@@ -124,7 +128,7 @@ class Game extends Component {
   }
 
   render() {
-    
+
     return (
       <Wrapper>
         <Stats
@@ -134,16 +138,18 @@ class Game extends Component {
           play={this.state.play}
           init={this.gameInit}
         />
-        {this.state.cardSet.map(item => (
-          <Card
-            guess={this.guessHandler}
-            id={item.id}
-            pairId={item.pairId}
-            key={item.id}
-            active={item.active}
-            matched={item.matched}
-          />
-        ))}
+        <div className="row">
+          {this.state.cardSet.map(item => (
+            <Card
+              guess={this.guessHandler}
+              id={item.id}
+              pairId={item.pairId}
+              key={item.id}
+              active={item.active}
+              matched={item.matched}
+            />
+          ))}
+        </div>
       </Wrapper>
     );
   }

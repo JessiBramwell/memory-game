@@ -1,6 +1,6 @@
 {
-  "homepage": "https://jessibramwell.github.io/memory-game/",
-  "name": "memory-game",
+  "homepage": "https://jessibramwell.github.io/react-memory-game/",
+  "name": "react-memory-game",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
